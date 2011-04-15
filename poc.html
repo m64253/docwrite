@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Proof-of-Concept</title>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssreset/reset-min.css&amp;3.3.0/build/cssfonts/fonts-min.css&amp;3.3.0/build/cssbase/base-min.css" />
+	<style type="text/css">
+		body {
+			width: 60%;
+			margin: auto;
+		}
+		h1 {
+			font-size: 400%;
+		}
+		h2 {
+			font-size: 200%;
+		}
+		ol,
+		ol li {
+			margin: 0;
+			padding: 0;
+		}
+		ol {
+			padding: 0 4em 1em 4em;
+			border-bottom: 0.465em solid #eeeeee;
+		}
+	</style>
+	<script src="docwrite.js"></script>
+</head>
+
+<body>
+
+<h1>Beating <code>document.write</code></h1>
+
+<h2>Simple 1 level <em>inline</em></h2>
+<ol>
+	<li>
+		<script>
+			document.write('INLINE: 1');
+		</script>
+	</li>
+	<li>
+		<script>
+			document.write('INLINE: 2');
+		</script>
+	</li>
+</ol>
+
+<h2>Simple 1 level <em>external</em></h2>
+<ol>
+	<li>
+		<script src="http://dev/docwrite/external1.js"></script>
+	</li>
+	<li>
+		<script src="http://dev/docwrite/external2.js"></script>
+	</li>
+</ol>
+
+
+<h2>Multiple 1 level <em>inline</em></h2>
+<ol>
+	<li>
+		<script>
+			document.write('INLINE: 1:1<br />');
+			document.write('INLINE: 1:2<br />');
+			document.write('INLINE: 1:3<br />');
+		</script>
+	</li>
+	<li>
+		<script>
+			document.write('INLINE: 2:1<br />');
+			document.write('INLINE: 2:2<br />');
+			document.write('INLINE: 2:3<br />');
+		</script>
+	</li>
+</ol>
+
+<h2>Multiple 1 level <em>external</em></h2>
+<ol>
+	<li>
+		<script src="http://dev/docwrite/multi-external1.js"></script>
+	</li>
+	<li>
+		<script src="http://dev/docwrite/multi-external2.js"></script>
+	</li>
+</ol>
+
+<h2>Multi level <em>inline</em></h2>
+<ol>
+	<li>
+		<script>
+			document.write('<scr' + 'ipt src="http://dev/docwrite/multi.php?t=MULTI-INLINE: 1"></scri' + 'pt>');
+		</script>
+	</li>
+	<li>
+		<script>
+			document.write('<scr' + 'ipt src="http://dev/docwrite/multi.php?t=MULTI-INLINE: 2"></scri' + 'pt>');
+		</script>
+	</li>
+</ol>
+
+<h2>Multi level <em>external</em></h2>
+<ol>
+	<li>
+		<script src="http://dev/docwrite/multi.php?t=MULTI-EXTERNAL: 1"></script>
+	</li>
+	<li>
+		<script src="http://dev/docwrite/multi.php?t=MULTI-EXTERNAL: 2"></script>
+	</li>
+</ol>
+
+</body>
+</html>

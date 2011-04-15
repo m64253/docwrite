@@ -1,0 +1,1 @@
+document.write('<scr' + 'ipt src="http://dev/docwrite/external2.js"></scri' + 'pt>');
